@@ -16,6 +16,11 @@ async def on_ready():
     print(f"{client.user} is now running!")
 
 @client.event
+async def on_member_join(member):
+    direct_message = await member.create_dm()
+    await direct_message.send(f"# Welcome to The Workshop!\nHello <@{member.id}>\nThe Workshop, is a coding community dedicated to exploring the exciting world of AI and other coding elements! We're thrilled to have you here and can't wait to embark on this coding journey together.\n\nRemember to read the rules! https://discord.com/channels/1113170764162662410/1113178829771526214")
+
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
