@@ -18,3 +18,7 @@ def handle_commands(tree, app_commands, discord, guild):
             await interaction.followup.send(f"You cleared {amount} messages!")
         else:
             await interaction.response.send_message(f"<@{interaction.user.id}> You dont have permission!")
+    
+    @tree.command(name="ping", description="Ping the server!", guild=guild)
+    async def ping(interaction):
+        await interaction.response.send_message("Pong!")
