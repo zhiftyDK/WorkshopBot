@@ -3,6 +3,7 @@ from discord import app_commands
 from modules.badwords import handle_badwords
 from modules.commands import handle_commands
 from modules.response import handle_response
+from modules.spellchecker import spellchecker
 
 with open("token.key", "r", encoding="utf-8") as f:
     TOKEN = f.read()
@@ -26,6 +27,8 @@ async def on_message(message):
         return
     
     await handle_badwords(message)
+
+    # await spellchecker(message) DISABLED FOR NOW
     
     if client.user.mentioned_in(message):
         await handle_response(message, client)
